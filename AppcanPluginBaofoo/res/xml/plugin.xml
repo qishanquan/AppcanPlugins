@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uexplugins>
+	<plugin
+        className="com.baofoo.UexBaofoo" uexName="uexBaofoo" >
+        <method name="toPayActivity" />
+    </plugin>
+</uexplugins>
