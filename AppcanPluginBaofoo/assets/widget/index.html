@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+	
+<script type="text/javascript">
+	function toBaofooPay () {
+		var MemberID = '100000178';
+		var TerminalID = '10000001';
+		var TradeDate = '20150520072220';
+		var TransId = 'TY9615052007222079985';
+		var OrderMoney = '1';
+		var PayId = '4010001';
+		var NoticeType = '0';
+		var CommodityName = '天下粮仓-网银充值';
+		var UserName = 'member_system';
+		var AdditionalInfo = '79';
+		var PageUrl = '';
+		var ReturnUrl = 'http://localhost:90/index.php/Dop/baofoo_sdkpay_return?order_id=822';
+		var Signature = 'a2ac634a5a81fd47027467f27feae688';
+		var BaofooPayurl = "http://tgw.baofoo.com/payupwap";	// 正式环境: http://gw.baofoo.com/payupwap
+
+		uexBaofoo.toPayActivity(MemberID, TerminalID, TradeDate, TransId, OrderMoney, PayId, NoticeType, CommodityName, UserName, AdditionalInfo, PageUrl, ReturnUrl, Signature, BaofooPayurl);
+	}
+</script>
+</head>
+
+<body>
+	<div class="tit">uexDemo对象</div>
+	<div class="conbor">
+		<div class="consj">
+			<span>打开宝付支付接口</span>
+			<div class="tcxx" id="f1">
+				打开支付窗口
+			</div>
+			<input class="btn" type="button" value="点击调用接口" onclick="toBaofooPay()"><br><br>
+		</div>
+	</div>
+</body>
+</html>
