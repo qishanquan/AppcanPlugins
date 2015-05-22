@@ -7,7 +7,6 @@ import android.app.ActivityGroup;
 import android.app.LocalActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Vibrator;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
@@ -15,9 +14,6 @@ import android.widget.RelativeLayout;
 
 public class UexBaofoo extends EUExBase {
 
-
-	private Vibrator m_v;
-	private View m_myView;
 
 	public UexBaofoo(Context context, EBrowserView view) {
 		super(context, view);
@@ -61,6 +57,7 @@ public class UexBaofoo extends EUExBase {
 				intent.putExtra("BaofooPayurl", BaofooPayurl);
 				
 				LocalActivityManager mgr = ((ActivityGroup) mContext).getLocalActivityManager();
+				mgr.removeAllActivities();
 				Window window = mgr.startActivity("mainAct", intent);
 				View mMapDecorView = window.getDecorView();
 				RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -75,19 +72,7 @@ public class UexBaofoo extends EUExBase {
 	// clean something
 	@Override
 	protected boolean clean() {
-		if (null != m_v) {
-			try {
-				m_v.cancel();
-			} catch (SecurityException e) {
-				;
-			}
-		}
-		m_v = null;
-		if (null != m_myView) {
-			removeViewFromCurrentWindow(m_myView);
-			m_myView = null;
-		}
-		return true;
+		return false;
 	}
 
 }
