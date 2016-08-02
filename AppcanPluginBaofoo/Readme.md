@@ -1,0 +1,2 @@
+
+AppcanPluginBaofoo 该插件为宝付支付平台Android端的SDK封装
